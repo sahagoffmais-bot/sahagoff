@@ -1,0 +1,9 @@
+/* Regra para controlar o tamanho exato da Logo */
+.logo-site {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    object-fit: contain;
+    display: block;
+}

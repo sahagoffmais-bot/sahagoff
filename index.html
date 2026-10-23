@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LS POÇOS / SAHAGOFF | Perfuração, Manutenção e Geologia</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            600: '#0284c7',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        },
+                        wa: {
+                            DEFAULT: '#25D366',
+                            hover: '#1eb855',
+                            dark: '#128C7E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        .card-clean {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease-in-out;
+        }
+        .card-clean:hover {
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+            border-color: #cbd5e1;
+        }
+
+        @keyframes wa-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .pulse-wa {
+            animation: wa-pulse 2.8s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-100 text-slate-800 selection:bg-brand-800 selection:text-white">
+
+    <!-- ========================================== -->
+    <!-- TOPBAR INFORMATIVA                         -->
+    <!-- ========================================== -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Empresa Licenciada e Registrada</span>
+                <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-clock text-slate-400"></i> Seg. a Sáb: 07h às 18h</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-emerald-400"></i> Atendimento Regional Especializado</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- HEADER FIXO / NAVBAR                       -->
+    <!-- ========================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between min-h-[90px] py-2">
+                
+                <!-- LOGO REAL LS POÇOS / SAHAGOFF -->
+                <a href="#" class="flex items-center space-x-4 group">
+                    <div class="flex items-center justify-center">
+                        <img src="assets/slogo.jpeg" alt="Logotipo LS Poços / Sahagoff" class="w-auto h-16 object-contain transition-all duration-150 group-hover:scale-105">
+                    </div>
+                    
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl sm:text-2xl text-slate-900 tracking-tight leading-none">LS POÇOS / SAHAGOFF</span>
+                        <span class="text-[11px] font-bold text-brand-800 uppercase tracking-widest mt-1">ÁGUA É VIDA, NOSSA MISSÃO É LEVAR</span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
+                    <a href="#inicio" class="hover:text-brand-800 transition-colors">Início</a>
+                    <a href="#servicos" class="hover:text-brand-800 transition-colors">Serviços</a>
+                    <a href="#calculadora" class="hover:text-brand-800 transition-colors">Calculadora</a>
+                    <a href="#orcamento" class="hover:text-brand-800 transition-colors">Orçamento</a>
+                    <a href="#diferenciais" class="hover:text-brand-800 transition-colors">Diferenciais</a>
+                    <a href="#faq" class="hover:text-brand-800 transition-colors">Dúvidas Frequentes</a>
+                </nav>
+
+                <!-- Botão VERDE WhatsApp Header -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="triggerWhatsApp('Olá! Gostaria de falar com a equipe da LS Poços / Sahagoff.')" class="bg-[#25D366] hover:bg-[#1eb855] text-white font-extrabold px-5 py-3 rounded-xl shadow-md flex items-center space-x-2.5 text-xs uppercase tracking-wider transition-all hover:scale-[1.02]">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Solicitar Orçamento</span>
+                    </button>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="lg:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none border border-slate-200">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Início</a>
+            <a href="#servicos" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Nossos Serviços</a>
+            <a href="#calculadora" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Simulador de Poço</a>
+            <a href="#orcamento" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Solicitar Orçamento</a>
+            <a href="#diferenciais" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Por que nos escolher</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-slate-800 hover:text-brand-800">Perguntas Frequentes</a>
+            
+            <div class="pt-3">
+                <button onclick="triggerWhatsApp('Olá! Vim pelo site mobile da LS Poços / Sahagoff.'); toggleMobileMenu();" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center space-x-2 text-sm shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Falar no WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <section id="inicio" class="py-16 md:py-24 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white border border-slate-300 rounded-lg px-3.5 py-1.5 shadow-sm">
+                        <i class="fa-solid fa-circle-check text-brand-800 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Perfuração • Manutenção • Outorga</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Perfuração e Manutenção de <span class="text-brand-800">Poços Artesianos</span> com Qualidade e Garantia
+                    </h1>
+
+                    <p class="text-base text-slate-600 leading-relaxed max-w-2xl">
+                        A <strong class="font-bold text-slate-800">LS POÇOS / SAHAGOFF</strong> oferece engenharia especializada para garantir a independência hídrica do seu imóvel. Perfuração em solo e rocha, manutenção preventiva com compressor de alta pressão e licença ambiental completa.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="flex items-center space-x-3 text-xs font-bold text-slate-800 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-award text-brand-800 text-base"></i>
+                            <span>vazão ambiental</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs font-bold text-slate-800 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-truck-monster text-brand-800 text-base"></i>
+                            <span>Maquinário Próprio</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs font-bold text-slate-800 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-file-signature text-brand-800 text-base"></i>
+                            <span>Outorga em Dia</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <button onclick="triggerWhatsApp('Olá! Gostaria de solicitar um orçamento para poço artesiano com a LS Poços / Sahagoff.')" class="bg-[#25D366] hover:bg-[#1eb855] text-white font-extrabold px-8 py-4 rounded-xl shadow-lg flex items-center justify-center space-x-3 text-base transition-all hover:scale-[1.01] pulse-wa">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Falar no WhatsApp Agora</span>
+                        </button>
+                        
+                        <a href="#orcamento" class="bg-white hover:bg-slate-50 text-slate-800 font-bold px-6 py-4 rounded-xl border border-slate-300 flex items-center justify-center space-x-2 text-sm transition shadow-sm">
+                            <i class="fa-solid fa-paper-plane text-slate-600"></i>
+                            <span>Preencher Formulário</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-lg">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-200">
+                            <img src="assets/poco.jpeg" alt="Perfuração de Poço LS Poços / Sahagoff" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-900/20"></div>
+                            <div class="absolute bottom-3 left-3 right-3 bg-slate-900/90 backdrop-blur-md text-white p-3 rounded-xl border border-slate-700 text-xs">
+                                <p class="font-bold flex items-center gap-2"><i class="fa-solid fa-check text-[#25D366]"></i> Atendimento para Chácaras, Fazendas e Indústrias</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 grid grid-cols-2 gap-3 text-center border-t border-slate-100 mt-2">
+                            <div>
+                                <p class="text-2xl font-black text-slate-900">+15 Anos</p>
+                                <p class="text-[11px] text-slate-500 font-semibold uppercase">De Tradição Técnica</p>
+                            </div>
+                            <div class="border-l border-slate-200">
+                                <p class="text-2xl font-black text-slate-900">100% Legal</p>
+                                <p class="text-[11px] text-slate-500 font-semibold uppercase">Licenciamento Ambiental</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SIMULADOR / CALCULADORA                    -->
+    <!-- ========================================== -->
+    <section id="calculadora" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-md">
+                
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-800 bg-white px-3 py-1 rounded-md border border-slate-200">Ferramenta Rápida</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Simulador de Orçamento de Poço</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1">Selecione as opções abaixo para montar sua cotação instantânea com a <strong>LS POÇOS / SAHAGOFF</strong>.</p>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Seu Nome / Empresa *</label>
+                            <input type="text" id="calcName" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none shadow-sm" placeholder="Ex: João Silva">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">2. Serviço Necessário</label>
+                            <select id="calcService" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none shadow-sm">
+                                <option value="Perfuração Novo Poço">Perfuração de Novo Poço</option>
+                                <option value="Manutenção e Limpeza">Manutenção / Limpeza de Poço</option>
+                                <option value="Instalação de Bomba">Instalação / Troca de Bomba</option>
+                                <option value="Outorga e Regularização">Outorga / Regularização Ambiental</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">3. Profundidade Estimada (m)</label>
+                            <select id="calcDepth" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none shadow-sm">
+                                <option value="Até 50 metros">Até 50 metros</option>
+                                <option value="50m a 100m">50m a 100m (Mais Comum)</option>
+                                <option value="100m a 180m">100m a 180m</option>
+                                <option value="Não sei / Preciso de Avaliação">Não sei / Preciso de Avaliação Técnica</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">4. Sua Cidade e Estado</label>
+                            <input type="text" id="calcCity" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none shadow-sm" placeholder="Ex: Ponta Grossa - PR">
+                        </div>
+                    </div>
+
+                    <button onclick="sendCalculatorToWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-extrabold py-4 px-6 rounded-xl shadow-md flex items-center justify-center space-x-3 text-base transition-all hover:scale-[1.01]">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Enviar Simulação no WhatsApp</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SERVIÇOS ESPECIALIZADOS                    -->
+    <!-- ========================================== -->
+    <section id="servicos" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-800 bg-white px-3.5 py-1.5 rounded-md border border-slate-200">Soluções Hídricas</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-3">Nossos Serviços Especializados</h2>
+                <p class="text-sm text-slate-600 mt-2">Atendemos todas as etapas da captação de água subterrânea com rigor técnico e garantia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-brand-800 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-bore-hole text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Perfuração de Poços</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            Perfuração rotopercussiva em rocha sedimentar ou cristalina com tubulação reforçada e revestimento completo.
+                        </p>
+                    </div>
+                    <button onclick="triggerServiceWhatsApp('Perfuração de Poço Artesiano')" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Solicitar Orçamento</span>
+                    </button>
+                </div>
+
+                <div class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-brand-800 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Manutenção & Limpeza</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            Limpeza com compressor de alta pressão, desinfecção química e recuperação da vazão original do poço.
+                        </p>
+                    </div>
+                    <button onclick="triggerServiceWhatsApp('Limpeza e Manutenção de Poço')" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Agendar Manutenção</span>
+                    </button>
+                </div>
+
+                <div class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-brand-800 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Bombas & Quadros</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            Instalação, dimensionamento e substituição de bombas submersas de alta eficiência e painéis de proteção.
+                        </p>
+                    </div>
+                    <button onclick="triggerServiceWhatsApp('Bombas Submersas e Quadros')" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Consultar Equipamentos</span>
+                    </button>
+                </div>
+
+                <div class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-brand-800 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-file-contract text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Outorga & Licença</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            Regularização ambiental completa, teste de bombeamento contínuo e laudos técnicos assinados por geólogos.
+                        </p>
+                    </div>
+                    <button onclick="triggerServiceWhatsApp('Outorga e Licenciamento Ambiental')" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Regularizar Poço</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- FORMULÁRIO COMPLETO DE ORÇAMENTO           -->
+    <!-- ========================================== -->
+    <section id="orcamento" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-md">
+                
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-800 bg-white px-3 py-1 rounded-md border border-slate-200">Solicitação Direta</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Formulário de Orçamento</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1">Preencha seus dados para enviar um pedido direto ao nosso atendimento via WhatsApp.</p>
+                </div>
+
+                <form onsubmit="sendFormToWhatsApp(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome / Empresa *</label>
+                            <input type="text" id="formName" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none" placeholder="Ex: João Silva">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Sua Cidade e Estado *</label>
+                            <input type="text" id="formCity" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none" placeholder="Ex: Ponta Grossa / PR">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Serviço Desejado *</label>
+                        <select id="formService" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none">
+                            <option value="Perfuração de Novo Poço">Perfuração de Novo Poço</option>
+                            <option value="Limpeza e Manutenção de Poço">Limpeza / Manutenção de Poço</option>
+                            <option value="Instalação ou Troca de Bomba">Instalação ou Troca de Bomba</option>
+                            <option value="Outorga e Licenciamento Ambiental">Outorga / Regularização Ambiental</option>
+                            <option value="Teste de Vazão e Análise de Água">Teste de Vazão e Análise de Água</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Observações ou Detalhes do Local</label>
+                        <textarea id="formMessage" rows="3" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:ring-2 focus:ring-brand-800 focus:outline-none" placeholder="Informe o tipo de terreno, acesso para caminhão ou profundidade estimada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-extrabold py-4 px-6 rounded-xl shadow-md flex items-center justify-center space-x-3 text-base transition-all">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Enviar Solicitação de Orçamento</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- DIFERENCIAIS                               -->
+    <!-- ========================================== -->
+    <section id="diferenciais" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-800 bg-white px-3 py-1 rounded-md border border-slate-200">Tradição e Confiança</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-3">Por que escolher nossa empresa?</h2>
+                    <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+                        A perfuração de um poço artesiano é um investimento importante para o seu imóvel. Trabalhamos rigorosamente dentro das normas técnicas (ABNT) e ambientais para garantir segurança jurídica e máxima vida útil do seu poço.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start space-x-3.5">
+                            <div class="p-3 bg-white text-brand-800 rounded-xl border border-slate-200 mt-0.5">
+                                <i class="fa-solid fa-file-shield text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Garantia Registrada em Contrato</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Garantia formalizada de execução técnica do poço e funcionamento dos equipamentos instalados.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3.5">
+                            <div class="p-3 bg-white text-brand-800 rounded-xl border border-slate-200 mt-0.5">
+                                <i class="fa-solid fa-user-gear text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Equipe Técnica Responsável</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Geólogos e engenheiros sanitaristas registrados nos órgãos de classe (CREA / CONFEA).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3.5">
+                            <div class="p-3 bg-white text-brand-800 rounded-xl border border-slate-200 mt-0.5">
+                                <i class="fa-solid fa-truck-pickup text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Frota Própria e Maquinário de Alta Performance</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Equipamentos preparados para terrenos rochosos, arenosos e argilosos com rapidez de perfuração.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 p-8 text-center space-y-6 shadow-sm">
+                    <div class="w-16 h-16 bg-brand-800 text-white rounded-2xl mx-auto flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Precisa de atendimento emergencial?</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Bomba queimada, falta de água ou contaminação? Atendemos chamados de manutenção corretiva com urgência.
+                        </p>
+                    </div>
+                    <button onclick="triggerWhatsApp('Olá! Estou com uma emergência no meu poço e preciso de manutenção urgente.')" class="w-full bg-[#25D366] hover:bg-[#1eb855] text-white font-bold py-3.5 px-6 rounded-xl shadow-sm flex items-center justify-center space-x-2 text-sm transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Chamar Manutenção de Urgência</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- FAQ (DÚVIDAS FREQUENTES)                   -->
+    <!-- ========================================== -->
+    <section id="faq" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-800 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Esclarecimentos</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-2">Perguntas Frequentes</h2>
+                <p class="text-sm text-slate-600 mt-1">Confira as dúvidas mais comuns sobre perfuração e regularização de poços.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">1. Quanto tempo demora para perfurar um poço artesiano?</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">O tempo médio de perfuração varia entre 1 a 3 dias úteis, dependendo do tipo de solo (rocha dura ou sedimento) e da profundidade necessária.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">2. É necessário autorização para perfurar poço?</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Sim. É necessária a Licença de Perfuração e, posteriormente, a Outorga de Direito de Uso da Água emitida pelo órgão ambiental do estado.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">3. Qual a frequência ideal para manutenção do poço?</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Recomendamos realizar a limpeza e manutenção preventiva a cada 12 ou 24 meses para preservar a qualidade da água e prevenir queimas da bomba.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- RODAPÉ (FOOTER)                            -->
+    <!-- ========================================== -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center space-x-3 mb-3">
+                    <img src="assets/slogo.jpeg" alt="Logo LS Poços / Sahagoff" class="h-10 w-auto object-contain">
+                    <span class="font-black text-lg text-white">LS POÇOS / SAHAGOFF</span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">Soluções completas em perfuração, manutenção, outorga ambiental e instalação de bombas submersas.</p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-xs">Navegação Rápida</h4>
+                <ul class="space-y-2">
+                    <li><a href="#inicio" class="hover:text-white transition">Início</a></li>
+                    <li><a href="#servicos" class="hover:text-white transition">Nossos Serviços</a></li>
+                    <li><a href="#calculadora" class="hover:text-white transition">Simulador de Poço</a></li>
+                    <li><a href="#orcamento" class="hover:text-white transition">Solicitar Orçamento</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-xs">Atendimento</h4>
+                <p class="mb-2"><i class="fa-solid fa-clock mr-1.5 text-brand-600"></i> Segunda a Sábado: 07h às 18h</p>
+                <p><i class="fa-solid fa-shield-check mr-1.5 text-emerald-400"></i> Responsável Técnico Cadastrado no CREA</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-slate-500">
+            <p>© LS POÇOS / SAHAGOFF - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS JAVASCRIPT                         -->
+    <!-- ========================================== -->
+    <script>
+        const customPhone = "5542999410508"; // Número do WhatsApp fixo permanente
+
+        function triggerWhatsApp(msg) {
+            const url = `https://wa.me/${customPhone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        function triggerServiceWhatsApp(serviceName) {
+            triggerWhatsApp(`Olá! Gostaria de informações e orçamento sobre o serviço de: ${serviceName}.`);
+        }
+
+        function sendFormToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('formName').value;
+            const city = document.getElementById('formCity').value;
+            const service = document.getElementById('formService').value;
+            const msg = document.getElementById('formMessage').value;
+
+            const text = `*SOLICITAÇÃO DE ORÇAMENTO*\n\n*Nome:* ${name}\n*Cidade:* ${city}\n*Serviço:* ${service}\n*Observações:* ${msg || 'Nenhuma'}`;
+            triggerWhatsApp(text);
+        }
+
+        function sendCalculatorToWhatsApp() {
+            const name = document.getElementById('calcName').value;
+            const service = document.getElementById('calcService').value;
+            const depth = document.getElementById('calcDepth').value;
+            const city = document.getElementById('calcCity').value;
+
+            const text = `*SIMULAÇÃO DE POÇO ARTESIANO*\n\n*Nome:* ${name || 'Não informado'}\n*Serviço:* ${service}\n*Profundidade:* ${depth}\n*Cidade:* ${city || 'Não informada'}`;
+            triggerWhatsApp(text);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
